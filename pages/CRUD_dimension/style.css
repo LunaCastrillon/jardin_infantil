@@ -1,0 +1,19 @@
+body {
+    background: #f2f2f2;
+  }
+  
+  .row-container {
+  
+    transition: all 0.3s ;
+    cursor: pointer;
+  }
+  
+  button {
+    position: relative;
+    bottom: 1px;
+  }
+  @media screen and (max-width: 992px) {
+    .le-hide {
+      visibility: hidden;
+    }
+  }

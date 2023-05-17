@@ -14,38 +14,50 @@
         integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"
         defer></script>
 
-    <script src="main.js" defer></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+
+
+    <script type="module" src="main.js" defer></script>
     <title>Crear profesor</title>
 
 </head>
 
 <body>
     <div style="height: 100vh;" class="d-flex justify-content-center align-items-center">
-        <form class="">
+        <form id="register_teacher_form">
             <div class="row mb-3">
-                <label for="inputEmail3" class="col-sm-2 ms-1 col-form-label">Nombre</label>
+                <label for="nombre" class="col-sm-2 ms-1 col-form-label">Nombre:</label>
                 <div class="col-sm-10">
-                    <input type="email" class="form-control" id="inputEmail3">
+                    <input type="text" class="form-control" id="nombre" name="nombre">
                 </div>
             </div>
             <div class="row mb-3">
-                <label for="inputEmail3" class="col-sm-2 ms-1 col-form-label">Email</label>
+                <label for="curso" class="col-sm-2 ms-1 col-form-label">Curso: </label>
                 <div class="col-sm-10">
-                    <input type="email" class="form-control" id="inputEmail3">
+                    <input type="text" class="form-control" id="curso" name="curso">
+                </div>
+            </div>
+            <div class="row mb-3">
+                <label for="email" class="col-sm-2 ms-1 col-form-label">Email:</label>
+                <div class="col-sm-10">
+                    <input type="email" class="form-control" id="email" name="email">
                 </div>
             </div>
             <div class="row mb-3 ">
-                <label for="inputPassword3" class="col-sm-2 ms-1 col-form-label">Password</label>
+                <label for="password" class="col-sm-2 ms-1 col-form-label">Contraseña:</label>
                 <div class="col-sm-10">
-                    <input type="password" class="form-control" id="inputPassword3">
+                    <input type="password" class="form-control" id="password" name="password">
                 </div>
             </div>
-            <div class="row mb-3">
-                <label for="inputEmail3" class="col-sm-2 ms-1 col-form-label">Curso</label>
+            <div class="row mb-3 ">
+                <label for="password" class="col-sm-2 ms-1 col-form-label">Confirmar contraseña:</label>
                 <div class="col-sm-10">
-                    <input type="email" class="form-control" id="inputEmail3">
+                    <input type="password" class="form-control" id="password" name="password">
                 </div>
             </div>
+            
             <button type="submit" class="btn btn-primary">Registrar</button>
         </form>
     </div>
