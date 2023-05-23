@@ -6,7 +6,7 @@ export const removeDocument = (collection, field, countSlice) => {
   $btn_eliminar.addEventListener("click", (e) => {
     e.preventDefault();
 
-    let confirmed = confirm("¿Estás seguro de eliminar el curso?");
+    let confirmed = confirm("¿Estás seguro de eliminar?");
 
     if (!confirmed) {
       return;
@@ -28,7 +28,7 @@ export const removeDocument = (collection, field, countSlice) => {
             .delete()
             .then(() => {
               console.log("Documento eliminado correctamente");
-              confirm("Curso eliminado correctamente");
+              confirm("eliminado correctamente");
               window.location.reload();
             })
             .catch((error) => {
