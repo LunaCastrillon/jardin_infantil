@@ -1,13 +1,12 @@
-import { editDocument } from "../../utils/editar_documento";
-import { removeDocument } from "../../utils/eliminar_documento";
-import { listDocuments } from "../../utils/listar_documentos";
+import { createDocument } from "../../utils/crear_documento.js";
+import { editDocument } from "../../utils/editar_documento.js";
+import { removeDocument } from "../../utils/eliminar_documento.js";
+import { listDocuments } from "./../../utils/listar_documentos.js";
 
-const template = `
+createDocument("form_dimension.html");
 
-        `;
+listDocuments("Dimensiones", "nombre dimension", "nombre_dimension");
 
-listDocuments("Dimensiones", "nombre", template);
+editDocument("Dimensiones", "form_dimension.html");
 
-editDocument("Dimensiones", "nombre", 9, "form_dimension.html");
-
-removeDocument("Dimensiones", "nombre", 9);
+removeDocument("Dimensiones");

@@ -64,7 +64,7 @@ form.addEventListener("submit", (e) => {
       acudiente: data.get("acudiente"),
       curso: data.get("curso"),
       asistencia: [],
-      notas: "",
+      notas: {},
     })
     .then(() => {
       console.log("Datos agregados correctamente");

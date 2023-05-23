@@ -1,19 +1,19 @@
 import db from "../../index.js";
 
-export const editDocument = (collection, field, countSlice, href) => {
+export const editDocument = (collection, href) => {
   const $btn_editar = document.querySelector("#btn_editar");
 
   $btn_editar.addEventListener("click", (e) => {
     e.preventDefault();
-    let $valuedit = document.querySelector(".active").textContent;
-    $valuedit = $valuedit.slice(countSlice);
+    let $valuedit = document.querySelector(".active").getAttribute("[data-id]");
+    // $valuedit = $valuedit.slice(countSlice);
 
     const history = window.history;
 
     console.log($valuedit);
 
     db.collection(collection)
-      .where(field, "==", $valuedit)
+      .doc($valuedit)
       .get()
       .then((querySnapshot) => {
         querySnapshot.forEach((doc) => {
