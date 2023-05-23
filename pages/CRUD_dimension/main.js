@@ -45,7 +45,16 @@ $form.addEventListener("submit", (e) => {
 
   let data = new FormData($form);
 
-  db.collection("Dimensiones").add({
-    nombre_dimension: data.get("nombre_dimension"),
-  });
+  console.log(data.get("nombre_dimension"));
+
+  db.collection("Dimensiones")
+    .add({
+      nombre_dimension: data.get("nombre_dimension"),
+    })
+    .then(() => {
+      window.location.href = "show_dimension.html";
+    })
+    .catch((error) => {
+      console.error("Error adding document: ", error);
+    });
 });

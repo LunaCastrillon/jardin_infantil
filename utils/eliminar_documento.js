@@ -1,6 +1,6 @@
-import db from "../../index.js";
+import db from "../index.js";
 
-export const removeDocument = (collection, field, countSlice) => {
+export const removeDocument = (collection) => {
   const $btn_eliminar = document.querySelector("#btn_eliminar");
 
   $btn_eliminar.addEventListener("click", (e) => {
@@ -12,32 +12,51 @@ export const removeDocument = (collection, field, countSlice) => {
       return;
     }
 
-    let $valuedit = document.querySelector(".active").textContent;
-    $valuedit = $valuedit.slice(countSlice);
+    let $valuedit = document.querySelector(".active").getAttribute("[data-id]");
+    // $valuedit = $valuedit.slice(countSlice);
 
     console.log($valuedit);
 
-    db.collection(collection)
-      .where(field, "==", $valuedit)
-      .get()
-      .then((querySnapshot) => {
-        querySnapshot.forEach((doc) => {
-          console.log(doc.id, " => ", doc.data());
+    if (document.title === "Listado profesores") {
+      db.collection("Profesores")
+        .doc($valuedit)
+        .get()
+        .then((doc) => {
+          window.localStorage.setItem("uid", doc.data().uid);
+          console.log(doc.data().uid);
+
           db.collection(collection)
-            .doc(doc.id)
+            .doc($valuedit)
             .delete()
             .then(() => {
+<<<<<<< HEAD
               console.log("Documento eliminado correctamente");
               confirm("eliminado correctamente");
+=======
+              alert("Documento eliminado correctamente");
+>>>>>>> 3cccf7997ac8e7400d13f9f5785bd7de7d96a296
               window.location.reload();
             })
             .catch((error) => {
-              alert("Error al eliminar el documento: " + error);
+              alert("Error al obtener los documentos: " + error);
             });
+        })
+        .catch((error) => {
+          alert("Error al obtener los documentos: " + error);
         });
-      })
-      .catch((error) => {
-        alert("Error al obtener los documentos: " + error);
-      });
+
+      return;
+    } else {
+      db.collection(collection)
+        .doc($valuedit)
+        .delete()
+        .then(() => {
+          alert("Documento eliminado correctamente");
+          window.location.reload();
+        })
+        .catch((error) => {
+          alert("Error al obtener los documentos: " + error);
+        });
+    }
   });
 };
