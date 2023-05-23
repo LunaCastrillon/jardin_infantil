@@ -9,12 +9,12 @@ createDocument("form_course.html");
 
 //lista de cursos
 
-listDocuments("Cursos", "nombre_curso");
+listDocuments("Cursos", "nombre curso", "nombre_curso");
 
 // Editar curso
 
-editDocument("Cursos", "nombre_curso", 14, "form_course.html");
+editDocument("Cursos", "form_course.html");
 
 // Eliminar curso
 
-removeDocument("Cursos", "nombre_curso", 14);
+removeDocument("Cursos");
